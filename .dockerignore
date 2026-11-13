@@ -1,0 +1,10 @@
+data/
+uploads/
+.env
+.git/
+node_modules/
+tests/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.log

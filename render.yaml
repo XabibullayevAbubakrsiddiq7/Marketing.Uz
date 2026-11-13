@@ -1,0 +1,18 @@
+# Safe, read-only public preview. Free Render has ephemeral filesystem.
+# Do not enable account registration or real IMEI submissions on a free SQLite-backed instance.
+services:
+  - type: web
+    name: marketing-uz-demo
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PUBLIC_DEMO_READONLY
+        value: "1"
+      - key: IMEI_HMAC_SECRET
+        generateValue: true
+      - key: DB_PATH
+        value: /app/data/marketing.sqlite
